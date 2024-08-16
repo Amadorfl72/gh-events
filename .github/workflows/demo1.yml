@@ -3,7 +3,18 @@ on:
   pull_request:
     types: 
       - opened
+    branches:
+      - main #main
+      - 'dev-*' #dev-new dev-this-is-new
+      - 'feat/**' #feat/this-is-new feat/this-is-another-new  
   workflow_dispatch:
+  push: 
+    branches:
+      - main #main
+      - 'dev-*' #dev-new dev-this-is-new
+      - 'feat/**' #feat/this-is-new feat/this-is-another-new
+    paths-ignore:
+      - '-github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
